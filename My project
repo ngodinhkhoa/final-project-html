@@ -1,1 +1,25 @@
+HTML
+<div id="image">
+  Hover over an image below to display here.
+</div>
 
+<img src="pic1.jpg" alt="Picture 1 description" onmouseover="upDate(this)" onmouseout="undo()">
+<img src="pic2.jpg" alt="Picture 2 description" onmouseover="upDate(this)" onmouseout="undo()">
+<img src="pic3.jpg" alt="Picture 3 description" onmouseover="upDate(this)" onmouseout="undo()">
+//
+JS
+function upDate(previewPic) {
+  console.log("Mouse over triggered!");
+  console.log("Alt text:", previewPic.alt);
+  console.log("Image source:", previewPic.src);
+
+  document.getElementById("image").innerHTML = previewPic.alt;
+
+  document.getElementById("image").style.backgroundImage = "url('" + previewPic.src + "')";
+}
+
+function undo() {
+  document.getElementById("image").style.backgroundImage = "url('')";
+
+  document.getElementById("image").innerHTML = "Hover over an image below to display here.";
+}
